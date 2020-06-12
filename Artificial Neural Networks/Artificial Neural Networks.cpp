@@ -4,7 +4,7 @@
 #include <vector>
 #include <dnn.hpp>
 
-using namespace dnn;
+//using namespace dnn;
 using namespace cv;
 using namespace std;
 //课前准备
@@ -157,8 +157,8 @@ void yoloV3()
 
 	cv::dnn::Net net = cv::dnn::readNetFromDarknet(yolov3_model, weights);
 
-	net.setPreferableBackend(DNN_BACKEND_DEFAULT);
-	net.setPreferableTarget(DNN_TARGET_CPU);
+//	net.setPreferableBackend(DNN_BACKEND_DEFAULT);
+//	net.setPreferableTarget(DNN_TARGET_CPU);
 
 
 
@@ -173,11 +173,13 @@ int main()
 	//开始计时
 	double start = static_cast<double>(cvGetTickCount());
 
-	int method = DEMO_METHOD;
 
-	if (method == 0) {
-		yoloV3();
-	}
+		//yoloV3();
+	Mat img = imread("E://1//1.png");
+	imshow("test", img);
+	//等待用户按键
+	waitKey(0);
+	
 
 	//结束计时
 	double time = ((double)cvGetTickCount() - start) / cvGetTickFrequency();
